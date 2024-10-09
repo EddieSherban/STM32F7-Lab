@@ -1,0 +1,13 @@
+# logs
+*.log
+logs/
+
+# Build output directories
+dist/
+build/
+out/
+tmp/
+temp/
+
+# IDE/editor specific files
+.vscode/
