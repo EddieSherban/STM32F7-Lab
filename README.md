@@ -1,7 +1,3 @@
-Certainly! Here's an improved version of your README with headers and clearer instructions.
-
----
-
 # Project Setup and Build Instructions
 
 This guide provides step-by-step instructions to set up, build, and generate your microcontroller project using CubeMX, CMake, and Ninja.
@@ -99,3 +95,7 @@ Ensure you have the following tools installed:
    **Result:** Badabing badaboom now you have an elf file that you can flash onto your microcontroller.
 
 ---
+
+## Modifying the Project
+
+Now, you just have to save your edited files and run "ninja -j8" to rebuild your project from the "build" folder. You can always go into CubeMX to modify your peripherals and settings, just be sure to run "ninja -j8" after doing so.
