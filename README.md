@@ -27,26 +27,6 @@ Ensure you have the following tools installed:
 
 ---
 
-## Initial Project Setup
-
-1. **Run CMake configuration** (only once):
-
-   In the root project directory, execute the following command to configure the build system:
-
-   ```bash
-   cmake -Bbuild -G Ninja -DCMAKE_TOOLCHAIN_FILE=path\to\gcc-arm-none-eabi.cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=true
-   ```
-
-2. **Build the project**:
-
-   After configuring CMake, every time you change your code and want to build the project, enter the `build` folder and run the following:
-
-   ```bash
-   ninja -j8
-   ```
-
----
-
 ## Generating the Project using CubeMX
 
 1. **Create a new project in CubeMX**:
@@ -94,7 +74,7 @@ Ensure you have the following tools installed:
 
 ## Building the Project
 
-1. **Run CMake configuration** (if you haven't already):
+1. **Run CMake configuration** (only need to run this once):
 
    From the root directory, run:
 
@@ -116,10 +96,6 @@ Ensure you have the following tools installed:
    ninja -j8
    ```
 
-   **Result:** Once the build process is complete, you will have an ELF file ready to flash onto your microcontroller.
+   **Result:** Badabing badaboom now you have an elf file that you can flash onto your microcontroller.
 
 ---
-
-## Conclusion
-
-Badabing badaboom now you have an elf file that you can flash onto your microcontroller.
