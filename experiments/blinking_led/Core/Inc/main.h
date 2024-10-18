@@ -31,7 +31,9 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#define GREEN_LED_PIN GPIO_PIN_0
+#define BLUE_LED_PIN GPIO_PIN_7
+#define RED_LED_PIN GPIO_PIN_14
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

@@ -108,9 +108,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET); //LD1 connected to PB0 doesn't work
-    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_SET);
-    //HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(GPIOB, RED_LED_PIN, GPIO_PIN_SET); //LD1 connected to PB0 doesn't work
+    //HAL_GPIO_WritePin(GPIOB, BLUE_LED_PIN, GPIO_PIN_SET);
+    //HAL_GPIO_WritePin(GPIOB, GREEN_LED_PIN, GPIO_PIN_SET);
   }
   /* USER CODE END 3 */
 }
@@ -165,9 +165,13 @@ void SystemClock_Config(void)
 //     //HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14);
 //   }
 // }
-void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc1)
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc1) //CHECK THIS TMR
 {
   AD_RES = HAL_ADC_GetValue(&hadc1);
+  if(AD_RES > 0)
+  {
+    HAL_GPIO_WritePin(GPIOB, BLUE_LED_PIN, GPIO_PIN_RESET);
+  }
 }
 /* USER CODE END 4 */
 
