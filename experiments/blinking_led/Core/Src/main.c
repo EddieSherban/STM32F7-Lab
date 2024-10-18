@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "adc.h"
 #include "tim.h"
 #include "gpio.h"
 
@@ -46,6 +47,8 @@
 /* USER CODE BEGIN PV */
 // External variable for TIM2 handle
 extern TIM_HandleTypeDef htim2;
+extern ADC_HandleTypeDef hadc1;
+uint16_t AD_RES = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -93,6 +96,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_TIM2_Init();
+  MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
@@ -153,13 +157,17 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+// void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+// {
+//   if (htim->Instance == TIM2)
+//   {
+//     // Toggle LED on GPIOB Pin 14
+//     //HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14);
+//   }
+// }
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc1)
 {
-  if (htim->Instance == TIM2)
-  {
-    // Toggle LED on GPIOB Pin 14
-    HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14);
-  }
+  AD_RES = HAL_ADC_GetValue(&hadc1);
 }
 /* USER CODE END 4 */
 
